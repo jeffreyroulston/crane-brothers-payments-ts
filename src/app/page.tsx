@@ -1,95 +1,63 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <div className="body-wrapper">
+      <Image className="logo" src='/crane-logo.png' alt="Crane Brothers Logo" width={800} height={84} />
+      {/* <img className="logo" src="./app/crane-logo.png" /> */}
+      <a className="back-button" href="https://crane-brothers.com">Back to crane-brothers.com</a>
+      <h1>Payment</h1>
+      <div className="payment-wrapper">
+        <div className="left-side">
+          <div className="bank-transfer">
+            <h2>Direct bank transfers</h2>
+            <div className="bank-transfers">
+              <p>New Zealand</p>
+              <p>Crane Brothers</p>
+              <p>ASB Bank</p>
+              <p>A/C 12-3109-0055367-00</p>
+              <p>We accept Wepay and Alipay instore.</p>
+              <p>Please provide a reference number when paying online</p>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="right-side">
+          <h2>Make a Credit Card payment</h2>
+
+          <form method="post" className="payment-form">
+            <input
+              type="text"
+              id="full-name"
+              name="Name"
+              placeholder="Full Name"
+            />
+            <input type="text" id="full-name" placeholder="Email" name="Email" />
+            <input type="text" id="full-name" placeholder="Phone" name="Phone" />
+            <input type="text" id="full-name" placeholder="Amount" name="Amount" />
+            <p className="currency-label">NZD</p>
+            <input
+              type="text"
+              id="full-name"
+
+              placeholder="Reference"
+              name="Reference"
+            />
+            <input
+              type="text-field"
+              id="full-name"
+
+              placeholder="Comments"
+            />
+            <input
+              name="Submit"
+              type="submit"
+              value="Submit"
+              className="form-submit"
+            />
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,42 +1,205 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+	font-family: 'Brandon Text';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/BrandonText-Regular.woff') format('woff');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+	font-family: 'Brandon Text';
+	font-weight: 500;
+	src: url('/fonts/BrandonText-Medium.woff') format('woff');
+}
+@font-face {
+	font-family: 'Brandon Text';
+	font-style: bold;
+	font-weight: 700;
+	src: url('/fonts/BrandonText-Bold.woff') format('woff');
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/*
+* Body
+*/
+
+p {
+	font-size: 14px;
+	line-height: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h2 {
+	font-size: 18px;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.body-wrapper {
+	font-family: 'Brandon Text';
+	width: 80%;
+	margin: auto;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.payment-wrapper {
+	text-align: center;
+
+	display: flex;
+	flex-direction: row;
+	margin-top: 60px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.logo {
+	margin-top: 40px;
+	width: 300px;
+	height: auto;
+	/* margin-bottom: 50px; */
+}
+
+.back-button {
+	margin-top: 60px;
+	background-color: #000;
+	color: #fff;
+	padding: 10px 30px;
+	width: 200px;
+	text-decoration: none;
+}
+
+@media only screen and (max-width: 1000px) {
+	.payment-wrapper {
+		flex-direction: column;
+	}
+
+	.left-side {
+		width: 100% !important ;
+	}
+
+	.right-side {
+		width: 100% !important;
+		text-align: center;
+	}
+
+	p {
+		font-size: 18px !important;
+		line-height: 25px !important;
+	}
+
+	h2 {
+		font-size: 30px;
+	}
+
+	h1 {
+		font-size: 40px;
+	}
+
+	:-webkit-input-placeholder {
+		font-size: 18px !important;
+		line-height: 25px !important;
+	}
+
+	.payment-form input,
+	textarea,
+	select {
+		width: 100%;
+		padding: 10px 0px;
+		margin-bottom: 0px;
+		border-left: none;
+		border-right: none;
+		border-top: none;
+		border-bottom: 1px solid #000;
+		outline: none;
+		font-family: 'Brandon Text';
+		font-size: 250%;
+		line-height: 40px;
+	}
+
+	.form-submit {
+		margin-top: 60px;
+		background-color: #000;
+		color: #fff;
+		height: 80px;
+	}
+}
+
+/*
+* Left
+*/
+.left-side {
+	width: 40%;
+	padding-right: 15px;
+}
+.bank-transfer {
+	text-align: left;
+}
+
+.bank-transfers {
+	text-align: left;
+}
+
+/*
+* Right
+*/
+
+.right-side {
+	width: 60%;
+	text-align: left;
+}
+
+.payment-form table {
+	margin: auto;
+}
+
+/*
+* Form
+*/
+
+.payment-form input,
+textarea,
+select {
+	width: 100%;
+	padding: 10px 0px;
+	margin-bottom: 0px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: 1px solid #000;
+	outline: none;
+	font-family: 'Brandon Text';
+}
+
+.currency-label {
+	text-align: left;
+}
+
+.form-submit {
+	margin-top: 60px;
+	background-color: #000;
+	color: #fff;
+}
+
+/*
+* Response
+*/
+.response-wrapper {
+	width: 100%;
+	text-align: left;
+}
+.payment-button {
+	margin-top: 60px;
+	background-color: #000;
+	color: #fff;
+	width: 100%;
+	padding: 10px 30px;
+	margin-bottom: 0px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: 1px solid #000;
+	outline: none;
+	font-family: 'Brandon Text';
+	text-decoration: none;
+}
+
+.response {
+	margin-bottom: 50px;
 }
