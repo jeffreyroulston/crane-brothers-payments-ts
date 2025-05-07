@@ -1,7 +1,37 @@
+'use client'
+import { formatForm } from "@/utils/form";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 
 export default function Home() {
+
+  const router = useRouter()
+
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const data = formatForm(e.currentTarget)
+
+    const response = await fetch('/api/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .catch((err) => {
+        console.error('There has been an error', err)
+      })
+
+
+    if (response) {
+      router.push(response.body)
+    }
+
+  }
+
+
   return (
     <div className="body-wrapper">
       <Image className="logo" src='/crane-logo.png' alt="Crane Brothers Logo" width={800} height={84} />
@@ -25,29 +55,30 @@ export default function Home() {
         <div className="right-side">
           <h2>Make a Credit Card payment</h2>
 
-          <form method="post" className="payment-form">
+          <form onSubmit={handleSubmit} className="payment-form">
             <input
               type="text"
               id="full-name"
-              name="Name"
+              name="name"
               placeholder="Full Name"
+              required
             />
-            <input type="text" id="full-name" placeholder="Email" name="Email" />
-            <input type="text" id="full-name" placeholder="Phone" name="Phone" />
-            <input type="text" id="full-name" placeholder="Amount" name="Amount" />
+            <input type="text" id="email" placeholder="Email" name="email" required />
+            <input type="text" id="phone" placeholder="Phone" name="phone" />
+            <input type="text" id="amount" placeholder="Amount" name="amount" required />
             <p className="currency-label">NZD</p>
             <input
               type="text"
-              id="full-name"
-
+              id="reference"
               placeholder="Reference"
-              name="Reference"
+              name="reference"
+              required
             />
             <input
               type="text-field"
-              id="full-name"
-
+              id="comments"
               placeholder="Comments"
+              name="comments"
             />
             <input
               name="Submit"
