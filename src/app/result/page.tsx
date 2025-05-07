@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { assertValue } from "@/utils/variables";
-import { capitalizeFirstLetter } from "@/utils/variables";
 
 
 export default async function Result({searchParams}: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
@@ -14,6 +13,13 @@ export default async function Result({searchParams}: { searchParams: Promise<{ [
  const { body } = await fetch(`${baseUrl}/api/session?sessionId=${id}`).then((res) => res.json())
  .catch((err) => console.error(err))
 
+ let status = ''
+
+ if (body.transactions[0].responseText == 'APPROVED') { 
+  status = 'The transaction was approved.'
+ } else { 
+  status = "The transaction was declined"
+ }
 
  const name = body.metaData.slice(-1)
 
@@ -22,7 +28,7 @@ export default async function Result({searchParams}: { searchParams: Promise<{ [
        <Image className="logo" src='/crane-logo.png' alt="Crane Brothers Logo" width={800} height={84} />
        <a className="back-button" href="https://crane-brothers.com">Back to crane-brothers.com</a>
        <h1>Payment</h1>
-       <h2>{capitalizeFirstLetter(body.state)}</h2>
+       <h2>{status}</h2>
        <div className="response-wrapper">
          <div className="response">
            <p>{name}</p>
