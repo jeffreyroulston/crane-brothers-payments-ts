@@ -1,9 +1,9 @@
 import { RawFormData, WindcaveBodyType } from "@/types/windcave"
-import { assertValue } from "./variables"
+// import { assertValue } from "./variables"
 
 export const formatForm = (form: HTMLFormElement): WindcaveBodyType => {
 
-  const baseUrl = assertValue(process.env.NEXT_PUBLIC_BASE_URL, 'Missing BASE_URL Env Varialbe')
+  // const baseUrl = assertValue(process.env.NEXT_PUBLIC_BASE_URL, 'Missing BASE_URL Env Varialbe')
   const rawData = new FormData(form)
   const data = Object.fromEntries(rawData.entries()) as unknown as RawFormData
 
