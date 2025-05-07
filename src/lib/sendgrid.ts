@@ -14,7 +14,7 @@ export const sendResultEmail = async (body:Body) => {
   sgMail.setApiKey(sendgridKey)
   const msg = {
     // to: ['enquire@crane-brothers.com', 'murray@crane-brothers.com', 'info@crane-brothers.com', 'accounts@crane-brothers.com' ],
-    to: 'fergus@newterritory.studio',
+    to: 'murray@crane-brothers.com',
     from: 'payments@crane-brothers.com',
     subject: 'A new payment has been received',
     html: `

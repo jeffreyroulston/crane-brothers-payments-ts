@@ -1,15 +1,19 @@
 'use client'
-import { formatForm } from "@/utils/form";
 import Image from "next/image";
+import { useState } from 'react'
+import { formatForm } from "@/utils/form";
 import { useRouter } from "next/navigation";
 
 
 export default function Home() {
+  const [ submitting, setSubmitting ] = useState(false)
 
   const router = useRouter()
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    setSubmitting(true)
     e.preventDefault()
+
     const data = formatForm(e.currentTarget)
 
     const response = await fetch('/api/create', {
@@ -83,7 +87,7 @@ export default function Home() {
             <input
               name="Submit"
               type="submit"
-              value="Submit"
+              value={submitting ? "Submitting" : "Submit"}
               className="form-submit"
             />
           </form>
