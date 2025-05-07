@@ -21,11 +21,11 @@ export const formatForm = (form: HTMLFormElement): WindcaveBodyType => {
       data.name
     ],
     callbackUrls: {
-      approved: `${baseUrl}/result`,
-      declined: `${baseUrl}/result`,
-      cancelled: `${baseUrl}/result`
+      approved: `https://crane-brothers-payments.vercel.app/result`,
+      declined: `https://crane-brothers-payments.vercel.app/result`,
+      cancelled: `https://crane-brothers-payments.vercel.app/result`
     },
-    notificationUrl: `${baseUrl}/api/result`,
+    notificationUrl: `https://crane-brothers-payments.vercel.app/api/result`,
 
   }
   return _data
