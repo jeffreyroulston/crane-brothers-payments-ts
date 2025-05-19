@@ -9,6 +9,10 @@ export default async function Result({ searchParams }: { searchParams: Promise<{
 
   const id = (await searchParams).sessionId
 
+  if (!id) {
+    return notFound()
+  }
+
   const baseUrl = assertValue(process.env.BASE_URL, 'Missing BASE_URL Env Variable')
 
   const { body } = await fetch(`${baseUrl}/api/session?sessionId=${id}`).then((res) => res.json())
@@ -16,9 +20,6 @@ export default async function Result({ searchParams }: { searchParams: Promise<{
 
   let status = ''
 
-  if (!body.transactions) {
-    return notFound()
-  }
 
   if (body.transactions[0].responseText == 'APPROVED') {
     status = 'The transaction was approved.'
