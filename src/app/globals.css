@@ -35,8 +35,9 @@ h2 {
 .body-wrapper {
 	font-family: 'Brandon Text';
 	width: 80%;
-	margin: auto;
+	margin-inline: auto;
 	margin-top: 20px;
+	margin-bottom: 100px;
 	display: flex;
 	flex-direction: column;
 }
@@ -84,14 +85,6 @@ h2 {
 		line-height: 25px !important;
 	}
 
-	h2 {
-		font-size: 30px;
-	}
-
-	h1 {
-		font-size: 40px;
-	}
-
 	:-webkit-input-placeholder {
 		font-size: 18px !important;
 		line-height: 25px !important;
@@ -109,7 +102,7 @@ h2 {
 		border-bottom: 1px solid #000;
 		outline: none;
 		font-family: 'Brandon Text';
-		font-size: 250%;
+
 		line-height: 40px;
 	}
 
