@@ -24,27 +24,27 @@ export async function GET(request: NextRequest) {
     return NextResponse.error()
   }
 
-  const paymentResult = await fetchWindcaveSession(sessionId) 
-  
-  if (paymentResult.transactions[0].responseText == 'APPROVED' ) { 
+  const paymentResult = await fetchWindcaveSession(sessionId)
+
+  if (paymentResult.transactions[0].reCo == '00') {
     const name = paymentResult.metaData.slice(-1)
 
 
-      const body = { 
-        name,
-        email: paymentResult.customer.email,
-        amount: paymentResult.amount,
-        reference: paymentResult.merchantReference
-      }
-
-      const email = await sendResultEmail(body)
-
-      if (email) { 
-        return NextResponse.json({ status: 200, body: 'OK'})
-      }
-
-    } else { 
-      return NextResponse.error()
+    const body = {
+      name,
+      email: paymentResult.customer.email,
+      amount: paymentResult.amount,
+      reference: paymentResult.merchantReference
     }
+
+    const email = await sendResultEmail(body)
+
+    if (email) {
+      return NextResponse.json({ status: 200, body: 'OK' })
+    }
+
+  } else {
+    return NextResponse.error()
   }
+}
 
