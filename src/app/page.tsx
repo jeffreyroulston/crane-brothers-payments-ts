@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 
 export default function Home() {
-  const [ submitting, setSubmitting ] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
   const router = useRouter()
 
@@ -67,7 +67,7 @@ export default function Home() {
               placeholder="Full Name"
               required
             />
-            <input type="text" id="email" placeholder="Email" name="email" required />
+            <input type="email" id="email" placeholder="Email" name="email" required />
             <input type="text" id="phone" placeholder="Phone" name="phone" />
             <input type="text" id="amount" placeholder="Amount" name="amount" required />
             <p className="currency-label">NZD</p>
