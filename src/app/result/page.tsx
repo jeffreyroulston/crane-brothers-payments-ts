@@ -21,7 +21,7 @@ export default async function Result({ searchParams }: { searchParams: Promise<{
   let status = ''
 
 
-  if (body.transactions[0].responseText == 'APPROVED') {
+  if (body.transactions[0].reCo == '00') {
     status = 'The transaction was approved.'
   } else {
     status = "The transaction was declined"
