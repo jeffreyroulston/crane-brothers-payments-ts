@@ -13,8 +13,8 @@ This web application enables users to make manual payments via Windcave. It is d
 - **Next.js** – Provides the React framework with built-in server-side rendering and API routes, simplifying both frontend and backend logic in a single codebase.
 - **React** – For building interactive user interfaces.
 - **TypeScript** – Adds static typing to JavaScript, improving code quality and maintainability.
-- **Windcave** – Used as the payment gateway for secure, PCI-compliant payment processing. [Windcave API Documentation](https://www.windcave.com/developer-redirect)
-- **Sendgrid** – For reliable transactional email delivery to notify staff of successful payments. [Sendgrid Documentation](https://docs.sendgrid.com/)
+- **Windcave** – Used as the payment gateway for secure, PCI-compliant payment processing. [Windcave API Documentation](https://www.windcave.com/developer-e-commerce-api-rest)
+- **Sendgrid** – For reliable transactional email delivery to notify staff of successful payments. [Sendgrid Documentation](https://www.twilio.com/docs/sendgrid)
 
 ## Project Structure
 
@@ -43,15 +43,18 @@ crane-brothers-payments-ts/
 ## API Routes
 
 ### 1. `/api/create`
+
 - **Purpose:** Initiates a new Windcave payment session.
-- **How it works:**  
+- **How it works:**
   - Receives payment details from the frontend.
   - Creates a session with Windcave and returns a Hosted Payment Page URL.
   - The user is redirected to this URL to complete the transaction.
 
 ### 2. `/api/result`
+
 - **Purpose:** Notifies the backend that a payment has been completed.
-- **How it works:**  
+- **How it works:**
+
   - This endpoint is called by Windcave’s FPRN (Final Payment Result Notification) webhook after a transaction is completed.
   - The webhook sends a GET request containing the `sessionId` as a query parameter.
   - The endpoint does **not** contain the transaction result itself. Instead, it uses the `sessionId` to look up the payment result from Windcave.
@@ -65,8 +68,9 @@ crane-brothers-payments-ts/
   - [Windcave FPRN Documentation](https://www.windcave.com/developer-redirect#final-payment-result-notification)
 
 ### 3. `/api/session`
+
 - **Purpose:** Fetches the result of a payment session.
-- **How it works:**  
+- **How it works:**
   - Used by the `/result` page, which is where users are redirected after completing payment on Windcave.
   - Returns the transaction result for display to the user.
 
@@ -102,6 +106,7 @@ The following environment variables are required (values to be provided separate
 ## How to Test
 
 - **Manual Testing:**
+
   1. Start the development server.
   2. Navigate to the home page and submit a payment.
   3. Complete the payment on the Windcave Hosted Payment Page.
