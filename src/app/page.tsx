@@ -7,8 +7,20 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [submitting, setSubmitting] = useState(false)
+  const [amount, setAmount] = useState('')
 
   const router = useRouter()
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    const numericValue = value.replace(/[^0-9.]/g, '')
+    const parts = numericValue.split('.')
+    const sanitizedValue = parts.length > 2
+      ? parts[0] + '.' + parts.slice(1).join('')
+      : numericValue
+
+    setAmount(sanitizedValue)
+  }
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     setSubmitting(true)
@@ -25,6 +37,7 @@ export default function Home() {
     })
       .then((res) => res.json())
       .catch((err) => {
+        setSubmitting(false)
         console.error('There has been an error', err)
       })
 
@@ -69,7 +82,20 @@ export default function Home() {
             />
             <input type="email" id="email" placeholder="Email" name="email" required />
             <input type="text" id="phone" placeholder="Phone" name="phone" />
-            <input type="text" id="amount" placeholder="Amount" name="amount" required />
+            <div className="amount-wrapper">
+              <span className={`dollar-sign ${amount ? 'visible' : ''}`}>$</span>
+              <input
+                type="text"
+                id="amount"
+                placeholder="Amount"
+                name="amount"
+                value={amount}
+                onChange={handleAmountChange}
+                className={amount ? 'has-value' : ''}
+                inputMode="decimal"
+                required
+              />
+            </div>
             <p className="currency-label">NZD</p>
             <input
               type="text"

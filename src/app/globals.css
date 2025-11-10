@@ -10,6 +10,7 @@
 	font-weight: 500;
 	src: url('/fonts/BrandonText-Medium.woff') format('woff');
 }
+
 @font-face {
 	font-family: 'Brandon Text';
 	font-style: bold;
@@ -72,7 +73,7 @@ h2 {
 	}
 
 	.left-side {
-		width: 100% !important ;
+		width: 100% !important;
 	}
 
 	.right-side {
@@ -121,6 +122,7 @@ h2 {
 	width: 40%;
 	padding-right: 15px;
 }
+
 .bank-transfer {
 	text-align: left;
 }
@@ -164,6 +166,26 @@ select {
 	text-align: left;
 }
 
+.amount-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.amount-wrapper .dollar-sign {
+	position: absolute;
+	top: 48%;
+	transform: translateY(-50%);
+	opacity: 0;
+}
+
+.amount-wrapper .dollar-sign.visible {
+	opacity: 1;
+}
+
+.amount-wrapper input.has-value {
+	padding-left: 10px;
+}
+
 .form-submit {
 	margin-top: 60px;
 	background-color: #000;
@@ -184,6 +206,7 @@ select {
 	width: 100%;
 	text-align: left;
 }
+
 .payment-button {
 	margin-top: 60px;
 	background-color: #000;
