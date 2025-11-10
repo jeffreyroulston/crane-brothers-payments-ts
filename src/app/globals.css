@@ -173,7 +173,7 @@ select {
 
 .amount-wrapper .dollar-sign {
 	position: absolute;
-	top: 48%;
+	top: 36%;
 	transform: translateY(-50%);
 	opacity: 0;
 }
@@ -183,7 +183,7 @@ select {
 }
 
 .amount-wrapper input.has-value {
-	padding-left: 10px;
+	padding-left: 9px;
 }
 
 .form-submit {

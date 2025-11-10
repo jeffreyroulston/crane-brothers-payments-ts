@@ -83,7 +83,7 @@ export default function Home() {
             <input type="email" id="email" placeholder="Email" name="email" required />
             <input type="text" id="phone" placeholder="Phone" name="phone" />
             <div className="amount-wrapper">
-              <span className={`dollar-sign ${amount ? 'visible' : ''}`}>$</span>
+              <p className={`dollar-sign ${amount ? 'visible' : ''}`}>$</p>
               <input
                 type="text"
                 id="amount"
